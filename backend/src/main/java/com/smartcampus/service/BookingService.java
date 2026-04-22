@@ -134,4 +134,23 @@ public class BookingService {
                         "count", e.getValue()))
                 .collect(java.util.stream.Collectors.toList());
     }
+
+    @Transactional
+    public Booking checkIn(Long id) {
+        Booking booking = getById(id);
+        if (booking.getStatus() != BookingStatus.APPROVED) {
+            throw new BadRequestException("Only approved bookings can be checked in");
+        }
+        if (booking.isCheckedIn()) {
+            throw new BadRequestException("Booking is already checked in");
+        }
+        // Simplified check-in validation: just ensure the date matches today
+        if (!booking.getDate().equals(java.time.LocalDate.now())) {
+            throw new BadRequestException("Check-in is only available on the day of the booking");
+        }
+
+        booking.setCheckedIn(true);
+        booking.setCheckedInAt(java.time.LocalDateTime.now());
+        return bookingRepository.save(booking);
+    }
 }
