@@ -38,3 +38,4 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     @Query("SELECT b FROM Booking b WHERE b.status IN ('APPROVED', 'PENDING')")
     List<Booking> findAllActiveBookings();
 }
+
