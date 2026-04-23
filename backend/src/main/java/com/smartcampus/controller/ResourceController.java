@@ -43,3 +43,10 @@ public class ResourceController {
             @Valid @RequestBody Resource resource) {
         return ResponseEntity.ok(resourceService.update(id, resource));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteResource(@PathVariable Long id) {
+        resourceService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
