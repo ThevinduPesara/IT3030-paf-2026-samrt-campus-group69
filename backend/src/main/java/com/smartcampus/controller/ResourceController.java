@@ -27,3 +27,8 @@ public class ResourceController {
             @RequestParam(required = false) Integer minCapacity) {
         return ResponseEntity.ok(resourceService.searchResources(type, status, location, minCapacity));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Resource> getResource(@PathVariable Long id) {
+        return ResponseEntity.ok(resourceService.getById(id));
+    }
