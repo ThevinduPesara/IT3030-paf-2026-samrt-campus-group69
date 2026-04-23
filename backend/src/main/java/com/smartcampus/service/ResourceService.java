@@ -45,3 +45,15 @@ public class ResourceService {
         existing.setAvailabilityEnd(updates.getAvailabilityEnd());
         return resourceRepository.save(existing);
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Resource resource = getById(id);
+        resource.setStatus(ResourceStatus.OUT_OF_SERVICE);
+        resourceRepository.save(resource);
+    }
+
+    public long count() {
+        return resourceRepository.count();
+    }
+}
