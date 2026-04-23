@@ -18,3 +18,12 @@ import java.util.List;
 public class ResourceController {
 
     private final ResourceService resourceService;
+
+    @GetMapping
+    public ResponseEntity<List<Resource>> getResources(
+            @RequestParam(required = false) ResourceType type,
+            @RequestParam(required = false) ResourceStatus status,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) Integer minCapacity) {
+        return ResponseEntity.ok(resourceService.searchResources(type, status, location, minCapacity));
+    }
