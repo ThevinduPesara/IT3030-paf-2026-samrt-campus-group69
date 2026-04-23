@@ -1,11 +1,10 @@
 {
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-17",
-            "path": "${workspaceFolder}/.tools/jdk-17.0.2",
-            "default": true
-        }
-    ],
-    "maven.executable.path": "${workspaceFolder}/.tools/apache-maven-3.9.6/bin/mvn.cmd",
-    "java.compile.nullAnalysis.mode": "automatic"
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-17",
+      "path": "C:/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot",
+      "default": true
+    }
+  ],
+  "java.compile.nullAnalysis.mode": "automatic"
 }
