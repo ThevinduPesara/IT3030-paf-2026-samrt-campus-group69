@@ -56,7 +56,7 @@ public class NotificationService {
     public void onBookingStatusChanged(BookingStatusChangedEvent event) {
         var booking = event.getBooking();
         User recipient = booking.getUser();
-        if (!recipient.isNotifyOnBooking()) return; // User opted out
+        if (!recipient.isNotifyOnBooking()) return; 
 
         String status = booking.getStatus().name();
         createNotification(recipient,
@@ -73,8 +73,9 @@ public class NotificationService {
     public void onTicketStatusChanged(TicketStatusChangedEvent event) {
         var ticket = event.getTicket();
         User recipient = ticket.getReportedBy();
-        if (!recipient.isNotifyOnTicket()) return; // User opted out
+        if (!recipient.isNotifyOnTicket()) return; 
 
+        
         String status = ticket.getStatus().name();
         createNotification(recipient,
                 "TICKET_STATUS",
@@ -91,9 +92,9 @@ public class NotificationService {
         User reporter = ticket.getReportedBy();
         User commenter = event.getCommenter();
         
-        if (!reporter.isNotifyOnComment()) return; // User opted out
+        if (!reporter.isNotifyOnComment()) return; 
 
-        // Notify reporter if commenter is someone else
+        
         if (!reporter.getId().equals(commenter.getId())) {
             createNotification(reporter,
                     "COMMENT_ADDED",
