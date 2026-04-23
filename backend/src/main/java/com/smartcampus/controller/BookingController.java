@@ -75,4 +75,13 @@ public class BookingController {
         User currentUser = userService.getCurrentUser();
         return ResponseEntity.ok(bookingService.updateStatus(id, BookingStatus.CANCELLED, null, currentUser));
     }
+    @PatchMapping("/{id}/check-in")
+    public ResponseEntity<Booking> checkIn(@PathVariable Long id) {
+        User currentUser = userService.getCurrentUser();
+        if (currentUser.getRole() != User.Role.ADMIN) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+        return ResponseEntity.ok(bookingService.checkIn(id));
+    }
+
 }
