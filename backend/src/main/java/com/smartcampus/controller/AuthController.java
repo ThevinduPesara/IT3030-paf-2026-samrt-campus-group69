@@ -31,8 +31,7 @@ public class AuthController {
         String email = body.get("email");
         String role = body.getOrDefault("role", "USER");
         
-        // Ensure user exists or create mock
-        User user;
+         User user;
         try {
             user = userService.getUserByEmail(email);
         } catch (Exception e) {
