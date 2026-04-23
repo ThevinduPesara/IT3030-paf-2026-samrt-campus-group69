@@ -29,7 +29,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    private String provider; // "google"
+    private String provider; 
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
