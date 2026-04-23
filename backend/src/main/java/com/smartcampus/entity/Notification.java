@@ -22,12 +22,12 @@ public class Notification {
     private User recipient;
 
     @Column(nullable = false)
-    private String type;
+    private String message;
 
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = false,length = 1000)
     private String message;
 
     @Column(name = "is_read", nullable = false)
