@@ -32,3 +32,8 @@ public class ResourceController {
     public ResponseEntity<Resource> getResource(@PathVariable Long id) {
         return ResponseEntity.ok(resourceService.getById(id));
     }
+
+    @PostMapping
+    public ResponseEntity<Resource> createResource(@Valid @RequestBody Resource resource) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(resourceService.create(resource));
+    }
