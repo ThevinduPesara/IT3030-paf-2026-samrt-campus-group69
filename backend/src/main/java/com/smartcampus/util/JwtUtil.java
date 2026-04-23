@@ -42,6 +42,7 @@ public class JwtUtil {
         return (String) parseToken(token).getPayload().get("role");
     }
 
+    
     public boolean validateToken(String token) {
         try {
             parseToken(token);
