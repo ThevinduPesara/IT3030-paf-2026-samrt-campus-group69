@@ -26,6 +26,7 @@ export default function Sidebar() {
                 <NavLink to="/resources" className="nav-item">Catalogue</NavLink>
                 <NavLink to="/bookings" className="nav-item">Bookings</NavLink>
 
+                
                 <div className="nav-section">Maintenance</div>
                 <NavLink to="/tickets" className="nav-item">Incidents & Tickets</NavLink>
             </nav>
