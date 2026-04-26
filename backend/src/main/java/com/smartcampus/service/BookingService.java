@@ -55,7 +55,7 @@ public class BookingService {
         if (resource.getStatus() == Resource.ResourceStatus.OUT_OF_SERVICE) {
             throw new BadRequestException("Resource is currently out of service");
         }
-
+//
         List<Booking> conflicts = bookingRepository.findConflictingBookings(
                 resourceId, date, startTime, endTime);
         if (!conflicts.isEmpty()) {
